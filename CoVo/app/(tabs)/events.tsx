@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
+import axios from 'axios'; 
 
 // prolly want to add in an event image at some point
 /*
