@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'expo-router';
+import { Link, router } from 'expo-router';
 
 import {
   FlatList,
   StatusBar,
   StyleSheet,
   Text,
-  TouchableOpacity,
+  Pressable,
 } from 'react-native';
 import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
 import axios from 'axios';
@@ -27,7 +27,7 @@ type EventProps = {
 };
 
 const Item = ({ item, onPress, backgroundColor, textColor }: EventProps) => (
-  <TouchableOpacity onPress={onPress} style={[styles.item, { backgroundColor }]}>
+  <Pressable onPressIn={onPress} onPressOut={() => router.navigate({ pathname: '../event', params: { id: item.id } })}style={[styles.item, { backgroundColor }]}>
     <Text style={[styles.title, { color: textColor }]}>{item.title}</Text>
     <Text style={[styles.subtitle, { color: textColor }]}>{item.location}</Text>
     <Text style={[styles.subtitle, { color: textColor }]}>{item.description}</Text>
@@ -36,14 +36,13 @@ const Item = ({ item, onPress, backgroundColor, textColor }: EventProps) => (
       {new Date(item.date).toDateString()}
     </Text>
     <Link href={{
-    pathname: '../event',
-    params: {
-      id: item.id,
-    },
-  }}
-  style={styles.button}> See more details
+        pathname: '../event',
+        params: {
+          id: item.id,
+        }}}
+        style={styles.button}> See more details
     </Link>
-  </TouchableOpacity>
+  </Pressable>
 );
 
 const EventPage = () => {
@@ -70,8 +69,8 @@ const EventPage = () => {
   }, []);
 
   const renderItem = ({ item }: { item: EventData }) => {
-    const backgroundColor = item.id === selectedId ? '#e0fade' : '#386f49';
-    const color = item.id === selectedId ? 'white' : 'black';
+    const backgroundColor = item.id === selectedId ? '#588157' : '#3a5a40';
+    const color = item.id === selectedId ? 'white' : '#dad7cd';
 
     return (
       <Item
@@ -101,6 +100,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: StatusBar.currentHeight || 0,
+    backgroundColor: '#dad7cd'
   },
   item: {
     padding: 60,

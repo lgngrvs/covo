@@ -5,14 +5,14 @@ export default function TabLayout() {
     return (
         <Tabs
             screenOptions = {{
-                tabBarActiveTintColor: '#ffd33d',
+                tabBarActiveTintColor: '#3a5a40',
                 headerStyle: {
-                    backgroundColor: '#25292e',
+                    backgroundColor: '#dad7cd',
                 },
                 headerShadowVisible: false,
-                headerTintColor: '#fff',
+                headerTintColor: '#3a5a40',
                 tabBarStyle: {
-                    backgroundColor: '#25292e'
+                    backgroundColor: '#dad7cd'
                 },
             }}
         >
@@ -29,7 +29,7 @@ export default function TabLayout() {
                 options = {{ 
                     title: 'Events', 
                     tabBarIcon: ({color, focused } ) => (
-                        <Ionicons name={focused ? 'calendar-clear-outline' : 'calendar-clear-sharp'} color={color} size={24} />
+                        <Ionicons name={focused ? 'calendar-clear-sharp' : 'calendar-clear-outline'} color={color} size={24} />
                     ),
                 }} />
             <Tabs.Screen 
@@ -37,7 +37,7 @@ export default function TabLayout() {
                 options = {{ 
                     title: 'Profile', 
                     tabBarIcon: ({color, focused } ) => (
-                        <Ionicons name={focused ? 'person-circle-outline' : 'person-circle-sharp'} color={color} size={24} />
+                        <Ionicons name={focused ? 'person-circle-sharp' : 'person-circle-outline'} color={color} size={24} />
                     ),
                 }} />
  
