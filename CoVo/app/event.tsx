@@ -5,6 +5,7 @@ import axios from 'axios';
 import { EventData } from './(tabs)/events';  // Import EventData
 
 
+
 export default function SingleEvent() {
   const { id } = useLocalSearchParams<{ id: string, }>();
 
