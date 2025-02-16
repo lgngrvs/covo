@@ -14,13 +14,13 @@
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
       }
-  
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.rravi99.CoVo"
     },
     "web": {
       "bundler": "metro",
