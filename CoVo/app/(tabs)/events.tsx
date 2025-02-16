@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'expo-router';
+
 import {
   FlatList,
   StatusBar,
@@ -33,6 +35,14 @@ const Item = ({ item, onPress, backgroundColor, textColor }: EventProps) => (
     <Text style={[styles.subtitle, { color: textColor }]}>
       {new Date(item.date).toDateString()}
     </Text>
+    <Link href={{
+    pathname: '../event',
+    params: {
+      id: item.id,
+    },
+  }}
+  style={styles.button}> See more details
+    </Link>
   </TouchableOpacity>
 );
 
@@ -49,7 +59,7 @@ const EventPage = () => {
         const response = await axios.get('http://127.0.0.1:3000/api/allevents');
         // Assuming the response data is an array of events:
         //   e.g. [{ id, title, date, location, description }, ...]
-        console.log(response.data)
+        // console.log(response.data)
         setEvents(response.data);
       } catch (error) {
         console.error('Error fetching events:', error);
@@ -103,6 +113,11 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     fontSize: 20,
+  },
+  button: {
+    fontSize: 20,
+    textDecorationLine: 'underline',
+    color: '#000',
   },
 });
 
